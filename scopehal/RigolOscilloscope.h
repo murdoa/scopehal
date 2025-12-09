@@ -30,6 +30,8 @@
 #ifndef RigolOscilloscope_h
 #define RigolOscilloscope_h
 
+#include <array>
+
 class EdgeTrigger;
 
 class RigolOscilloscope : public virtual SCPIOscilloscope
@@ -179,6 +181,7 @@ protected:
 	std::size_t IdxToDigitalChannelNumber(std::size_t i); // does not check for validity!
 	std::size_t DigitalChannelNumberToIdx(std::size_t i); // does not check for validity!
 	std::size_t IdxToDigitalBankIdx(std::size_t i); // does not check for validity!
+	std::array<std::size_t, 2> GetMso5000AnalogBankUsage();
 
 protected:
 	OscilloscopeChannel* m_extTrigChannel {};
